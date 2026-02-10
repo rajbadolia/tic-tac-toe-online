@@ -1,0 +1,231 @@
+:root{
+  --bg1:#0f2027;
+  --bg2:#203a43;
+  --bg3:#2c5364;
+  --box:rgba(255,255,255,0.08);
+  --tile:rgba(255,255,255,0.15);
+  --btn:#00c9ff;
+  --glow:#00ffea;
+}
+body.love{
+  --bg1:#5a2a2a;
+  --bg2:#8b3a3a;
+  --bg3:#d9a7a7;
+
+  --box:rgba(255,245,245,0.15);
+  --tile:rgba(255,240,240,0.22);
+
+  --btn:#a33a3a;
+  --glow:#ffb3b3;
+}
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:Segoe UI;
+background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+color:white;
+}
+
+.box{
+  width:min(92vw,420px);
+  padding:20px;
+  border-radius:22px;
+  backdrop-filter:blur(16px);
+  background:var(--box);
+  box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+
+
+.board{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  width:100%;
+  max-width:360px;
+  margin-left:auto;
+  margin-right:auto;
+
+  /* IMPORTANT: reserve height */
+  min-height:300px;
+}
+
+.cell{
+  width:100%;
+  aspect-ratio:1/1;
+  background:var(--tile);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:clamp(30px,9vw,44px);
+  border-radius:16px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.25);
+}
+.cell:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 15px var(--glow);
+}
+
+
+button{
+margin:10px;
+padding:10px 18px;
+border:none;
+border-radius:10px;
+background:var(--btn);
+color:white;
+cursor:pointer;
+}
+@keyframes winGlow {
+  0% { box-shadow:0 0 10px var(--glow); }
+  50% { box-shadow:0 0 30px var(--glow),0 0 60px var(--glow); }
+  100% { box-shadow:0 0 10px var(--glow); }
+}
+
+.win {
+  animation: winGlow 1s infinite;
+  background:color-mix(in srgb, var(--glow) 35%, transparent);
+}
+
+.playerSetup{
+margin-top:10px;
+}
+
+.playerSetup input{
+padding:8px;
+border-radius:8px;
+border:none;
+margin-right:8px;
+}
+
+.scoreboard{
+display:flex;
+justify-content:space-between;
+margin-top:15px;
+gap:15px;
+}
+
+.playerCard{
+flex:1;
+background:rgba(255,255,255,0.12);
+padding:10px;
+border-radius:12px;
+display:flex;
+justify-content:space-between;
+font-weight:bold;
+font-size:18px;
+}
+body.love{
+  background: radial-gradient(circle at center,#7a3b3b 0%,#2b1515 90%);
+}
+#celebration{
+  position:fixed;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:9999;
+}
+
+.heart{
+  position:absolute;
+  font-size:26px;
+  color:#ffccd5;
+  animation:floatUp 3s linear forwards;
+}
+
+
+@keyframes floatUp{
+  0%{
+    transform:translateY(0) scale(0.7);
+    opacity:1;
+  }
+  100%{
+    transform:translateY(-120vh) scale(1.4);
+    opacity:0;
+  }
+}
+h1{
+  font-size:clamp(20px,5vw,28px);
+}
+
+input{
+  width:100%;
+  box-sizing:border-box;
+  margin-top:6px;
+}
+
+.controls{
+  display:flex;
+  gap:8px;
+  justify-content:space-between;
+}
+
+.controls button{
+  flex:1;
+  padding:12px 8px;
+  font-size:14px;
+}
+@media (max-width:480px){
+
+  .scoreboard{
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .playerCard{
+    font-size:16px;
+    padding:8px;
+  }
+
+}
+#gameUI{
+  display:none;
+}
+.joinArea{
+  display:flex;
+  gap:8px;
+  margin-top:10px;
+}
+
+.joinArea input{
+  flex:1;
+}
+
+.joinArea button{
+  margin:0;
+  white-space:nowrap;
+}
+
+.playerSetup{
+  display:flex;
+  gap:8px;
+  margin-top:12px;
+}
+
+.playerSetup input{
+  flex:1;
+}
+body.love h1{
+  color:#ffeaea;
+  text-shadow:0 0 10px rgba(255,180,180,0.35);
+}
+
+body.love .playerCard{
+  background:rgba(255,220,220,0.18);
+}
+
+body.love button{
+  background:#a33a3a;
+  box-shadow:0 4px 14px rgba(0,0,0,0.3);
+}
+button, .cell{
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}

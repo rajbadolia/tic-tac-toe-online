@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tic Tac Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="box">
+  <h1>🎮 Online Tic-Tac-Toe</h1>
+
+  <!-- ========== SETUP / LOBBY UI ========== -->
+  <div id="setupUI">
+
+    <div class="playerSetup">
+      <input id="nameInput" placeholder="Enter your name">
+      <button onclick="setName()">Set Name</button>
+    </div>
+
+    <div class="joinArea">
+      <input id="roomInput" placeholder="Enter room code">
+      <button onclick="joinRoom()">Join</button>
+    </div>
+
+    <h2 id="status">Waiting for players...</h2>
+
+  </div>
+
+
+  <!-- ========== GAME UI ========== -->
+  <div id="gameUI">
+
+    <div class="scoreboard">
+      <div class="playerCard">
+        <span id="playerX">Player X</span>
+        <span id="scoreX">0</span>
+      </div>
+
+      <div class="playerCard">
+        <span id="playerO">Player O</span>
+        <span id="scoreO">0</span>
+      </div>
+    </div>
+    <h2 id="gameStatus">Game in progress...</h2>
+    <div id="board" class="board"></div>
+
+    <div class="controls">
+      <button onclick="resetGame()">Reset</button>
+      <button id="musicBtn" onclick="toggleMusic()">🔇 Music</button>
+      <button onclick="toggleTheme()">💖 Theme</button>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- Sounds -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="clickSound">
+  <source src="click.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="winSound">
+  <source src="win.mp3" type="audio/mpeg">
+</audio>
+
+<!-- celebration hearts -->
+<div id="celebration"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="client.js"></script>
+</body>
+</html>
